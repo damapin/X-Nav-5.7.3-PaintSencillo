@@ -22,11 +22,33 @@ function canvasApp(){
     blackButton.addEventListener('click', colorPressed, false);
     whiteButton.addEventListener('click', colorPressed, false);
 
-    function colorPressed(e) {
-	  var color_button_selected = e.target;
-	  var color_id = color_button_selected.getAttribute('id');
-	  colorChosen.innerHTML = color_id;
+    /* Función de asignación de color según el botón pulsado*/
+     function colorPressed(e) {
+      var color_button_selected = e.target;
+      var color_id = color_button_selected.getAttribute('id');
+      colorChosen.innerHTML = color_id;
     }
+
+    var sizeChosen = document.getElementById("size_chosen")
+
+    var size5Button = document.getElementById("5");
+    var size7Button = document.getElementById("7");
+    var size9Button = document.getElementById("9");
+    var size11Button = document.getElementById("11");
+    var size13Button = document.getElementById("13");
+
+    size5Button.addEventListener('click', sizePressed, false);
+    size7Button.addEventListener('click', sizePressed, false);
+    size9Button.addEventListener('click', sizePressed, false);
+    size11Button.addEventListener('click', sizePressed, false);
+    size13Button.addEventListener('click', sizePressed, false);
+
+    function sizePressed(e) {
+      var size_button_selected = e.target;
+      var size_id = size_button_selected.getAttribute('id');
+      sizeChosen.innerHTML = size_id;
+    }
+   
 
     /* Botón de reseteo */
 	var resetButton = document.getElementById("reset_image");
@@ -61,12 +83,12 @@ function canvasApp(){
     function mouse_moved(ev) {
 	  var x, y;	
 	  // Get the mouse position in the canvas
-	  x = ev.pageX;
-	  y = ev.pageY;
+	  x = ev.offsetX;
+	  y = ev.offsetY;
 
 	  if (begin_drawing) {
 	    context.beginPath();
-	    context.arc(x, y, 7, (Math.PI/180)*0, (Math.PI/180)*360, false);
+	    context.arc(x, y, sizeChosen.innerHTML, (Math.PI/180)*0, (Math.PI/180)*360, false);
 	    context.fill();
         context.closePath();
 	  }

@@ -23,6 +23,14 @@ input {
   background-color: black;
 }
 
+#White {
+	background-color: white;
+}
+
+.sizeButtons {
+	background-color: #65BABF;
+}
+
 canvas {
   border-width: 1;
   border: solid;
